@@ -7,7 +7,7 @@ fields:
     slug:
         label: Slug
         span: auto
-        disabled: 1
+        disabled: 0
         preset:
             field: name
             type: slug
