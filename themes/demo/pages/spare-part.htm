@@ -1,0 +1,116 @@
+title = "Запасные части"
+description = "Выберете запасную часть по доступным категориям"
+keywords = "Запасные части для кранов, башенные краны, запчасти для кранов"
+url = "/spare-part/:page"
+layout = "default"
+is_hidden = 0
+
+[builderList partList]
+modelClass = "MochalovNikita\Zapchasti\Models\Part"
+scope = "-"
+scopeValue = "{{ :category }}"
+displayColumn = "name"
+noRecordsMessage = "Записи не найдены"
+detailsPage = "single-part"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+recordsPerPage = 6
+pageNumber = "{{ :page }}"
+sortColumn = "id"
+sortDirection = "asc"
+==
+<div class="w-full py-6">
+    <ul class="w-full flex justify-start items-center">
+        <li>
+            <a href="{{ 'home'|page }}" class="text-blue-800 text-sm">ГРАДТЕХНОСТРОЙ</a>
+        </li>
+        <span class="mx-2 text-gray-600 text-sm">/</span>
+        <li>
+            <a href="{{ 'spare-part'|page }}" class="text-gray-600 text-sm">Запасные части</a>
+        </li>
+    </ul>
+</div>
+<section class="w-full py-5 inline-block" role="banner" aria-label="Краны">
+    <div class="w-full mb-7" role="heading">
+        <div class="md:items-start xs:flex-wrap w-full flex items-end justify-between">
+            <h2 class="text-6xl sm:text-5xl uppercase font-bold text-left text-blue-800 mb-3">
+                Запасные части
+            </h2>
+        </div>
+    </div>
+    <div class="w-full grid auto-rows-min grid-cols-[1fr,_250px] gap-7 md:grid-cols-1">
+        <div aria-label="Товары" class="w-full md:order-2 grid grid-cols-3 lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-2 gap-5 xs:gap-4 mb-8 ">
+            {% set records = partList.records %}
+            {% set displayColumn = partList.displayColumn %}
+            {% set noRecordsMessage = partList.noRecordsMessage %}
+            {% set detailsPage = partList.detailsPage %}
+            {% set detailsKeyColumn = partList.detailsKeyColumn %}
+            {% set detailsUrlParameter = partList.detailsUrlParameter %}
+            {% for record in records %}
+                        <div class="w-full bg-gray-100 border-2 border-gray-200">
+                <div class="w-full py-4 px-5">
+                    <h4 class="text-left text-zinc-800 text-xl font-medium">{{ str_limit(record.name|raw, 20) }}</h4>
+                </div>
+                <img src="/storage/app/media{{ record.image }}" alt="" class="w-full h-40 object-cover">
+                <ul aria-label="Характеристики" class="w-full py-4 px-5">
+                    <li class="w-full flex items-center justify-between mb-2">
+                        <span class="font-medium text-zinc-800">SKU</span>
+                        <span class="text-zinc-500 text-sm">{{ record.sku }}</span>
+                    </li>
+                    <li class="w-full flex items-center justify-between mb-2">
+                        <span class="font-medium text-zinc-800 mr-2">Наименование</span>
+                        <span title="{{ record.name }}" class="text-zinc-500 text-sm line-clamp text-right" style="--line-clamp: 1;">{{ record.name }}</span>
+                    </li>
+                    <li class="w-full flex items-center justify-between mb-2">
+                        <span class="font-medium text-zinc-800">Состояние</span>
+                        <span class="text-zinc-500 text-sm">
+                                            {% if record.condition == 1 %}
+                                            Новое
+                                            {% else %}
+                                            Б/у
+                                            {% endif %}
+                        </span>
+                    </li>
+                    <li class="w-full flex items-center justify-between mb-2">
+                        <span class="font-medium text-zinc-800">Наличие</span>
+                        <span class="text-zinc-500 text-sm">
+                                            {% if record.availability == 1 %}
+                                            В наличии
+                                            {% else %}
+                                            Товар закончился
+                                            {% endif %}
+                        </span>
+                    </li>
+                    <li class="w-full flex items-center justify-between mb-2">
+                        <span class="font-medium text-zinc-800">Совместимость</span>
+                        <span class="text-zinc-500 text-sm">{{ record.compatibility }}</span>
+                    </li>
+                </ul>
+                <div class="w-full flex justify-end pb-4 px-5">
+                    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}" class="button-primary">Подробнее</a>
+                </div>
+            </div>
+            {# {{ record.category.slug }} #}
+            {% endfor %}
+        </div>
+        
+        {% partial 'site/category-sedebar' %} 
+    </div>
+    {% if records.lastPage > 1 %}
+                    <ul class="flex items-center">
+                        {% if records.currentPage > 1 %}
+                            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr;</a></li>
+                        {% endif %}
+                
+                        {% for page in 1..records.lastPage %}
+                            <li style="margin: 0 5px;" class="{{ records.currentPage == page ? 'bg-gray-200 text-blue-800 w-7 h-7 flex items-center justify-center rounded-md' : null }}w-7 h-7 flex items-center justify-center rounded-md border-2 border-gray-200">
+                                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                            </li>
+                        {% endfor %}
+                
+                        {% if records.lastPage > records.currentPage %}
+                            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}"> &rarr;</a></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+</section>

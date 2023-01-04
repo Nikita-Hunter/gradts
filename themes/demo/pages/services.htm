@@ -1,0 +1,58 @@
+title = "Услуги"
+url = "/services/:scope"
+layout = "default"
+description = "Перечень услуг компании ГРАДТЕХНОСТРОЙ"
+keywords = "Услуги ГРАДТЕХНОСТРОЙ"
+
+[builderList serviceList]
+modelClass = "MochalovNikita\Uslugi\Models\Service"
+scope = "scopeActive"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "Услуги не найдены"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+sortColumn = "id"
+sortDirection = "asc"
+==
+{% set records = serviceList.records %}
+{% set displayColumn = serviceList.displayColumn %}
+{% set noRecordsMessage = serviceList.noRecordsMessage %}
+{% set detailsPage = serviceList.detailsPage %}
+{% set detailsKeyColumn = serviceList.detailsKeyColumn %}
+{% set detailsUrlParameter = serviceList.detailsUrlParameter %}
+            <div class="w-full py-6">
+                <ul class="w-full flex justify-start items-center">
+                    <li>
+                        <a href="{{ 'home'|page }}" class="text-blue-800 text-sm">ГРАДТЕХНОСТРОЙ</a>
+                    </li>
+                    <span class="mx-2 text-gray-600 text-sm">/</span>
+                    <li>
+                        <a href="{{ 'services'|page }}" class="text-gray-600 text-sm">Услуги</a>
+                    </li>
+                </ul>
+            </div>
+            <section class="w-full py-5 inline-block" role="banner" aria-label="Краны">
+                <div class="w-full mb-7" role="heading">
+                    <div class="md:items-start xs:flex-wrap w-full flex items-end justify-between">
+                        <h2 class="text-6xl sm:text-5xl uppercase font-bold text-left text-blue-800 mb-3">
+                            Услуги
+                        </h2>
+                    </div>
+                </div>
+                <div aria-label="Услуги" class="w-full grid grid-cols-1 gap-7 mb-8">
+                {% for record in records %}
+                <div class="w-full rounded-md">
+                    <div class="w-full bg-gray-200 p-4 shadow-sm">
+                        <h3 class="text-left text-xl font-semibold text-blue-900">{{ record.name }}</h3>
+                    </div>
+                    <div class="w-full bg-gray-100 p-4">
+                        {{ record.description|raw }}
+                    </div>
+                </div>
+                {% else %}
+                    <li class="no-data">{{ noRecordsMessage }}</li>
+                {% endfor %}
+                </div>
+            </section>

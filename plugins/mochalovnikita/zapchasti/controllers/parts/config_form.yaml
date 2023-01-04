@@ -1,0 +1,10 @@
+name: Parts
+form: $/mochalovnikita/zapchasti/models/part/fields.yaml
+modelClass: MochalovNikita\Zapchasti\Models\Part
+defaultRedirect: mochalovnikita/zapchasti/parts
+create:
+    redirect: 'mochalovnikita/zapchasti/parts/update/:id'
+    redirectClose: mochalovnikita/zapchasti/parts
+update:
+    redirect: mochalovnikita/zapchasti/parts
+    redirectClose: mochalovnikita/zapchasti/parts

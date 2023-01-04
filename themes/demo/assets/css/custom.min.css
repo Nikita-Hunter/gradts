@@ -1,0 +1,20 @@
+.writing-bt-lr{
+    transform: rotate(-90deg);
+    margin-right: 100%;
+    margin-top: calc(100% + 56px);
+    display: block;
+}
+.line-clamp{
+    --line-clamp: 1;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--line-clamp);
+}
+.about-text ul{
+    list-style-type: disc;
+    margin-left: 15px;
+}
+.about-text p{
+    padding: 10px 0;
+}

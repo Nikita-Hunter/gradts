@@ -1,0 +1,63 @@
+[builderList CraneList]
+modelClass = "MochalovNikita\BashennyeKrany\Models\Crane"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "single-crane"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+recordsPerPage = 3
+pageNumber = "{{ :page }}"
+sortColumn = "id"
+sortDirection = "desc"
+==
+{% set records = CraneList.records %}
+{% set displayColumn = CraneList.displayColumn %}
+{% set noRecordsMessage = CraneList.noRecordsMessage %}
+{% set detailsPage = CraneList.detailsPage %}
+{% set detailsKeyColumn = CraneList.detailsKeyColumn %}
+{% set detailsUrlParameter = CraneList.detailsUrlParameter %}
+{% for record in records %}
+<div class="w-full bg-gray-100 border-2 border-gray-200">
+	<img src="/storage/app/media{{ record.image }}" alt="" class="w-full h-72 object-cover" />
+	<div class="w-full py-7 px-5">
+		<h4 class="text-left text-zinc-800 text-xl font-medium">{{ record.name }}</h4>
+		<ul aria-label="Характеристики" class="w-full py-4">
+			<li class="w-full flex items-center justify-between mb-2">
+				<span class="font-medium text-zinc-800">Состояние</span>
+				<span class="text-zinc-500">
+                {% if record.condition == 2 %}
+                Новое
+                {% else %}
+                Б/у
+                {% endif %}
+                </span>
+			</li>
+			<li class="w-full flex items-center justify-between mb-2">
+				<span class="font-medium text-zinc-800">Производитель</span>
+				<span class="text-zinc-500">{{ record.brand }}</span>
+			</li>
+			<li class="w-full flex items-center justify-between mb-2">
+				<span class="font-medium text-zinc-800">Грузоподъемность макс.</span>
+				<span class="text-zinc-500">{{ record.load_copasity }} т</span>
+			</li>
+			<li class="w-full flex items-center justify-between mb-2">
+				<span class="font-medium text-zinc-800">Макс. вылет стрелы</span>
+				<span class="text-zinc-500">{{ record.max_dep }} м</span>
+			</li>
+			<li class="w-full flex items-center justify-between mb-2">
+				<span class="font-medium text-zinc-800">Грузоподъемность на макс. вылете</span>
+				<span class="text-zinc-500">{{ record.load_max_dep }} т</span>
+			</li>
+			<li class="w-full flex items-center justify-between">
+				<span class="font-medium text-zinc-800">Высота подъема крюка</span>
+				<span class="text-zinc-500">{{ record.height }} м</span>
+			</li>
+		</ul>
+		<div class="w-full flex justify-end">
+			<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}" class="button-primary">Подробнее</a>
+		</div>
+	</div>
+</div>
+{% endfor %}

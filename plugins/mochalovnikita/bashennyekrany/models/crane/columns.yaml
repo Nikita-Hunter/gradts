@@ -1,0 +1,47 @@
+columns:
+    id:
+        label: '#'
+        type: number
+    created_at:
+        label: 'Дата создания'
+        type: datetime
+    updated_at:
+        label: 'Дата обновления'
+        type: datetime
+    name:
+        label: Название
+        type: text
+        searchable: true
+    condition:
+        label: Состояние
+        type: text
+        searchable: true
+    brand:
+        label: Производитель
+        type: text
+        searchable: true
+    load_copasity:
+        label: 'Грузоподъемность макс.'
+        type: number
+        searchable: true
+    max_dep:
+        label: 'Макс. вылет стрелы'
+        type: number
+        searchable: true
+    load_max_dep:
+        label: 'Грузоподъемность на макс. вылете'
+        type: number
+        searchable: true
+    height:
+        label: 'Высота подъема крюка'
+        type: number
+        searchable: true
+    description:
+        label: Описание
+        type: text
+    image:
+        label: Изображение
+        type: text
+    slug:
+        label: Slug
+        type: text

@@ -1,0 +1,32 @@
+[builderList categoryList]
+modelClass = "MochalovNikita\Zapchasti\Models\Category"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "spare-part-category"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+pageNumber = "{{ :page }}"
+==
+{% set records = categoryList.records %}
+{% set displayColumn = categoryList.displayColumn %}
+{% set noRecordsMessage = categoryList.noRecordsMessage %}
+{% set detailsPage = categoryList.detailsPage %}
+{% set detailsKeyColumn = categoryList.detailsKeyColumn %}
+{% set detailsUrlParameter = categoryList.detailsUrlParameter %}
+<aside class="w-full md:order-1" role="slider" aria-label="Сайдар">
+            <ul class="w-full border border-gray-200 sticky top-5 right-0">
+                <div class="w-full mb-1 p-3 bg-gray-100">
+                    <h3 class="text-left text-xl font-semibold text-blue-800">Категории</h3>
+                </div>
+                <li class="w-full">
+                    <a href="{{ 'spare-part'|page }}" class="w-full block transition-colors duration-200 hover:bg-gray-100 px-3 py-2 rounded-md text-zinc-600">Все запчасти</a>
+                </li>
+                {% for record in records %}
+                <li class="w-full">
+                    <a href="{{ 'spare-part-category'|page({category:record.slug}, {page:default}) }}" class="w-full block transition-colors duration-200 hover:bg-gray-100 px-3 py-2 rounded-md text-zinc-600">{{ record.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>

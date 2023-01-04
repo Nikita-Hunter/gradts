@@ -1,0 +1,17 @@
+fields:
+    name:
+        label: 'Название услуги'
+        span: auto
+        placeholder: 'Доставка оборудования на объект'
+        required: 1
+        type: text
+    description:
+        label: 'Описание услуги'
+        size: ''
+        span: auto
+        required: 1
+        type: richeditor
+    active:
+        label: 'Отображение услуги'
+        span: auto
+        type: switch

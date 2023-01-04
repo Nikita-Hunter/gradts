@@ -1,0 +1,10 @@
+name: Sliders
+form: $/mochalovnikita/slider/models/slider/fields.yaml
+modelClass: MochalovNikita\Slider\Models\Slider
+defaultRedirect: mochalovnikita/slider/sliders
+create:
+    redirect: 'mochalovnikita/slider/sliders/update/:id'
+    redirectClose: mochalovnikita/slider/sliders
+update:
+    redirect: mochalovnikita/slider/sliders
+    redirectClose: mochalovnikita/slider/sliders

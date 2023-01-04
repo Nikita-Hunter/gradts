@@ -1,0 +1,89 @@
+fields:
+    name:
+        label: 'Название крана'
+        span: auto
+        placeholder: 'YONGMAO STT2830'
+        required: 0
+        type: text
+    condition:
+        label: 'Состояние крана'
+        options:
+            1: Б/у
+            2: Новое
+        showSearch: true
+        span: auto
+        required: 1
+        type: dropdown
+    brand:
+        label: Производитель
+        span: auto
+        placeholder: YONGMAO
+        required: 1
+        type: text
+    load_copasity:
+        label: 'Макс. грузоподъемность'
+        span: auto
+        placeholder: '160'
+        required: 1
+        type: text
+    max_dep:
+        label: 'Макс.вылет стрелы'
+        span: auto
+        placeholder: '40'
+        required: 1
+        type: text
+    load_max_dep:
+        label: 'Грузоподъемность на макс. вылете'
+        span: auto
+        placeholder: '85'
+        required: 1
+        type: text
+    height:
+        label: 'Высота подъема крюка'
+        span: auto
+        placeholder: '60,6'
+        required: 1
+        type: text
+    slug:
+        label: Slug
+        span: auto
+        disabled: 0
+        dependsOn: {  }
+        preset:
+            field: name
+            type: slug
+        type: text
+    image:
+        label: Изображение
+        mode: image
+        span: full
+        type: mediafinder
+tabs:
+    fields:
+        description:
+            label: 'Подробное описание'
+            size: huge
+            span: full
+            type: richeditor
+            tab: Описание
+        meta_title:
+            label: Название
+            span: auto
+            type: text
+            comment: 'Введите или измените название'
+            tab: 'SEO оптимизация'
+        meta_keywords:
+            label: 'Ключевые запросы'
+            span: auto
+            type: text
+            comment: 'Введите ключевые запросы'
+            tab: 'SEO оптимизация'
+        meta_description:
+            label: Описание
+            span: full
+            size: large
+            default: ''
+            placeholder: ''
+            type: textarea
+            comment: 'Введите описание'
+            tab: 'SEO оптимизация'

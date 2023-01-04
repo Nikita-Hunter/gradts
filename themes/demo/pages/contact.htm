@@ -1,0 +1,101 @@
+title = "Контакты"
+url = "/contact"
+layout = "default"
+==
+            <div class="w-full py-6">
+                <ul class="w-full flex justify-start items-center">
+                    <li>
+                        <a href="{{ 'home'|page }}" class="text-blue-800 text-sm">ГРАДТЕХНОСТРОЙ</a>
+                    </li>
+                    <span class="mx-2 text-gray-600 text-sm">/</span>
+                    <li>
+                        <a href="{{ 'contact'|page }}" class="text-gray-600 text-sm">контакты</a>
+                    </li>
+                </ul>
+            </div>
+            <section class="w-full py-5 inline-block" role="banner" aria-label="Краны">
+                <div class="w-full mb-7" role="heading">
+                    <div class="md:items-start xs:flex-wrap w-full flex items-end justify-between">
+                        <h2 class="text-6xl sm:text-5xl uppercase font-bold text-left text-blue-800 mb-3">
+                            Контакты
+                        </h2>
+                    </div>
+                </div>
+                <div class="w-full grid grid-cols-2 gap-10 lg:grid-cols-1">
+                    <div class="w-full">
+                        <ul class="w-full pt-24 lg:pt-0">
+                            <li class="w-full mb-8">
+                                <a href="tel:{{ this.theme.contact_phone }}" class="flex items-center justify-start">
+                                    <span class="w-10 h-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="currentColor" stroke-width="1.5" stroke="currentColor" class="w-full h-full text-blue-700">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                                        </svg>
+                                    </span>
+                                    <span class="ml-4 text-2xl font-semibold my-number" data-number="{{ this.theme.contact_phone }}">
+                                    {{ this.theme.contact_phone }}
+                                    </span>
+                                </a>
+                            </li>
+                            {% for number in this.theme.our_phone %}
+                            <li class="w-full mb-8">
+                                <a href="tel:{{ number.name }}" class="flex items-center justify-start">
+                                    <span class="w-10 h-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="currentColor" stroke-width="1.5" stroke="currentColor" class="w-full h-full text-blue-700">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                                        </svg>  
+                                    </span>
+                                    <span class="ml-4 text-2xl font-semibold my-number" data-number="{{ number.name }}">
+                                        {{ number.name}}
+                                    </span>
+                                </a>
+                            </li>
+                            {% endfor  %}
+                            <li class="w-full mb-8">
+                                <a href="mailto:{{ this.theme.contact_mail }}" class="flex items-center justify-start">
+                                    <span class="w-10 h-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full text-blue-700">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                                        </svg>
+                                    </span>
+                                    <span class="ml-4 text-2xl font-semibold">
+                                        {{ this.theme.contact_mail }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-full">
+                        <h2 class="mb-8 text-left font-bold text-4xl uppercase text-blue-800">
+                            Остались вопросы? Задайте их нам!
+                        </h2>
+                        <form onsubmit="sendMessage(); reset(); return false;" class="w-full">
+                            <div class="w-full grid grid-cols-2 gap-5 sm:grid-cols-1">
+                                <input class="w-full p-2 border-2 border-gray-200 bg-gray-10 rounded-md outline-none" type="text" id="name" placeholder="Введите имя" required>
+                                <input class="w-full p-2 border-2 border-gray-200 bg-gray-10 rounded-md outline-none" type="text" id="number" placeholder="Введите номер телефона" required>
+                            </div>
+                            <div class="w-full py-5">
+                                <textarea id="message" class="w-full p-2 border-2 border-gray-200 bg-gray-10 rounded-md outline-none" cols="30" rows="6" placeholder="Оставьте комментарий" style="resize: none;"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 inline-block text-center text-white font-semibold uppercase bg-blue-900 transition-colors duration-200 hover:bg-blue-800">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+                <script>
+                function sendMessage(){
+                    Email.send({
+                    Host : "smtp.elasticemail.com",
+                    Username : "Nayskom@gmail.com",
+                    Password : "86EB8C578B47FD7AD28DD226DD71F7AAE144",
+                    To : 'n.a.mochalov@volgtehkol.ru',
+                    From : "Nayskom@gmail.com",
+                    Subject : "Сообщение с сайта",
+                    Body : "<h2>Пользователь оставил сообщение</h2>"
+                            + "<br> Имя пользователя: " + document.getElementById('name').value
+                            + "<br> Телефон для связи: " + document.getElementById('number').value
+                            + "<br> Комментарий: " + document.getElementById('message').value
+                }).then(
+                    message => tata.info('Сообщение отправлено', 'Ожидайте ответа сотрудника')
+                );
+                }
+            </script>

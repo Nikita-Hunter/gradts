@@ -1,0 +1,83 @@
+fields:
+    name:
+        label: 'Название запчасти'
+        span: auto
+        required: 0
+        type: text
+    slug:
+        label: Slug
+        span: auto
+        default: ''
+        disabled: 0
+        preset:
+            field: name
+            type: slug
+        type: text
+    condition:
+        label: Состояние
+        options:
+            1: Новое
+            2: Б/у
+        showSearch: true
+        span: auto
+        required: 1
+        type: dropdown
+    availability:
+        label: Наличие
+        options:
+            1: 'В наличии'
+            2: 'Товар закончен'
+        showSearch: true
+        span: auto
+        required: 1
+        type: dropdown
+    compatibility:
+        label: Совместимость
+        span: auto
+        required: 1
+        type: text
+    sku:
+        label: SKU
+        span: auto
+        required: 1
+        type: text
+    category_id:
+        label: Категория
+        showSearch: true
+        span: auto
+        required: 1
+        type: dropdown
+    image:
+        label: Изображение
+        mode: image
+        span: auto
+        type: mediafinder
+    description:
+        label: 'Подробное описание'
+        size: large
+        span: full
+        type: richeditor
+    active:
+        label: Отображение
+        span: auto
+        type: switch
+tabs:
+    fields:
+        meta_title:
+            label: Название
+            span: auto
+            type: text
+            comment: 'Введите или измените название'
+            tab: 'SEO оптимизация'
+        meta_keywords:
+            label: 'Ключевые запросы'
+            span: auto
+            type: text
+            comment: 'Введите ключевые запросы'
+            tab: 'SEO оптимизация'
+        meta_description:
+            label: 'Введите описание'
+            size: large
+            span: full
+            type: textarea
+            tab: 'SEO оптимизация'

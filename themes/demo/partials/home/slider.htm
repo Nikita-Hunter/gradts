@@ -1,0 +1,22 @@
+    <div class="w-full h-96 swiper" role="slider">
+            <div class="w-full h-full swiper-wrapper">
+            {% for slider in this.theme.slider_images %}
+                <div class="w-full h-full swiper-slide">
+                    <img src="{{ slider.image|media }}" alt="" class="w-full h-full object-cover" />
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+            <div class="w-full flex items-center justify-end py-4">
+            <button class="swiper-main-prev shadow-blue-50 shadow-sm w-10 h-10 flex items-center justify-center cursor-pointer rounded-md border-2 border-gray-200 bg-white mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+            <button class="swiper-main-next shadow-blue-50 shadow-sm w-10 h-10 flex items-center justify-center cursor-pointer rounded-md border-2 border-gray-200 bg-white">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+        </div>
+

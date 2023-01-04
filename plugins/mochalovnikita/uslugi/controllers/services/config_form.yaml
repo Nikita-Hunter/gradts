@@ -1,0 +1,10 @@
+name: Services
+form: $/mochalovnikita/uslugi/models/service/fields.yaml
+modelClass: MochalovNikita\Uslugi\Models\Service
+defaultRedirect: mochalovnikita/uslugi/services
+create:
+    redirect: 'mochalovnikita/uslugi/services/update/:id'
+    redirectClose: mochalovnikita/uslugi/services
+update:
+    redirect: mochalovnikita/uslugi/services
+    redirectClose: mochalovnikita/uslugi/services

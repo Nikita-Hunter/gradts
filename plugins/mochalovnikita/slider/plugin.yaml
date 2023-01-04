@@ -1,0 +1,6 @@
+plugin:
+    name: 'mochalovnikita.slider::lang.plugin.name'
+    description: 'mochalovnikita.slider::lang.plugin.description'
+    author: 'Мочалов Никита'
+    icon: oc-icon-image
+    homepage: ''

@@ -1,0 +1,42 @@
+description = "Башенные краны"
+==
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="Мочалов Никита Андреевич">
+    <meta property="og:image" content="https://daktrans.ru/upload/iblock/cfb/cfb0b6916da2bd126703d1f3a53c81d7.jpg">
+    <meta name="description" content="{{ this.page.description }}">
+    <meta name="keywords" content="{{ this.page.keywords }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/images/favicons/apple-touch-icon.png'|theme }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/images/favicons/favicon-32x32.png'|theme }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ 'assets/images/favicons/favicon-16x16.png'|theme }}">
+    <link rel="manifest" href="{{ 'assets/images/favicons/site.webmanifest'|theme }}">
+    <link rel="mask-icon" href="{{ 'assets/images/favicons/safari-pinned-tab.svg'|theme }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{{ 'assets/css/loader.min.css'|theme }}">
+    <link rel="stylesheet" href="{{ 'assets/css/main.min.css'|theme }}">
+    <link rel="stylesheet" href="{{ 'assets/css/custom.min.css'|theme }}">
+    <link rel="stylesheet" href="{{ 'assets/css/libs/swiper.min.css'|theme }}">
+    <script defer src="https://smtpjs.com/v3/smtp.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="{{ 'assets/javascript/libs/tata.js'|theme }}"></script>
+    <script defer src="{{ 'assets/javascript/libs/swiper.min.js'|theme }}"></script>
+    <script defer src="{{ 'assets/javascript/app.js'|theme }}"></script>
+    <title>{{ this.theme.site_name }} | {{ this.page.title }}</title>
+    {% styles %}
+</head>
+<body x-data="{ modal: false }"  class="w-full min-h-screen bg-gray-50 text-md text-zinc-700">
+    {% partial 'site/header' %}
+    <main class="w-full" role="main">
+        <div class="max-w-[1240px] px-4 mx-auto" style="min-height: calc(100vh - 228px);">
+            {% page %}
+        </div>
+    </main>
+    {% partial 'site/footer' %}
+    {% scripts %}
+</body>
+</html>

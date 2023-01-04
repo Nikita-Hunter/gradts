@@ -1,0 +1,54 @@
+name: 'ГРАДТЕХНОСТРОЙ'
+description: ''
+author: 'Мочалов Никита'
+homepage: 'https://wintercms.com'
+code: ''
+
+form:
+  fields:
+    site_name: 
+      label: Введите название сайта
+      default: ГРАДТЕХНОСТРОЙ
+    contact_phone:
+      label: Телефон для связи
+      default: '+78442574002'
+    contact_mail:
+      label: Адрес эл.почты
+      default: 'info@gradts.ru'
+    our_phone: 
+      type: repeater
+      label: Дополнительные моб.номера
+      titleFrom: name
+      form:
+        fields:
+          name: 
+            label: Мобильный телефон
+            type: text
+            default: '+79999999999'
+    our_about:
+      type: repeater
+      label: Описание компании
+      titleFrom: about
+      form:
+        fields:
+          about: 
+            label: Введите описание компании
+            type: richeditor
+            default: 'ГРАДТЕХНОСТРОЙ - ваш помощник и путеводитель в вопросах поставок башенных кранов, запасных частей,узлов,агрегатов к ним.  Основной нашей целью является честно,профессионально и оперативно выполнять свою работу. Обратившись к нам вы можете рассчитывать на : Индивидуальный подход, персонального менеджера и высокое качество сервиса.'
+          image:
+              label: Изображение
+              mode: image
+              type: mediafinder
+    slider_images: 
+      type: repeater
+      label: Слайдер
+      titleFrom: image
+      form:
+        fields:
+          image:
+              label: Изображение
+              mode: image
+              span: full
+              type: mediafinder
+
+

@@ -1,0 +1,110 @@
+title = "Башенные краны"
+url = "/tower-crane/store/:page"
+description = "Продажа башенных кранов по всей России"
+keywords = "Башенные краны, продажа башенных кранов"
+layout = "default"
+is_hidden = 0
+
+[builderList]
+modelClass = "MochalovNikita\BashennyeKrany\Models\Crane"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "Записи не найдены"
+detailsPage = "single-crane"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+recordsPerPage = 6
+pageNumber = "{{ :page }}"
+==
+<div class="w-full py-6">
+                <ul class="w-full flex justify-start items-center">
+                    <li>
+                        <a href="{{ 'home'|page }}" class="text-blue-800 text-sm">ГРАДТЕХНОСТРОЙ</a>
+                    </li>
+                    <span class="mx-2 text-gray-600 text-sm">/</span>
+                    <li>
+                        <a href="{{ 'tower-crane'|page }}" class="text-gray-600 text-sm">Башенные краны</a>
+                    </li>
+                </ul>
+            </div>
+            <section class="w-full py-5 inline-block" role="banner" aria-label="Краны">
+                <div class="w-full mb-7" role="heading">
+                    <div class="md:items-start xs:flex-wrap w-full flex items-end justify-between">
+                        <h2 class="text-6xl sm:text-5xl uppercase font-bold text-left text-blue-800 mb-3">
+                            Башенные краны
+                        </h2>
+                    </div>
+                </div>
+                <div aria-label="Товары" class="w-full grid grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-7 mb-8">
+                    {% set records = builderList.records %}
+                {% set displayColumn = builderList.displayColumn %}
+                {% set noRecordsMessage = builderList.noRecordsMessage %}
+                {% set detailsPage = builderList.detailsPage %}
+                {% set detailsKeyColumn = builderList.detailsKeyColumn %}
+                {% set detailsUrlParameter = builderList.detailsUrlParameter %}
+                    {% for record in records %}
+                                <div class="w-full bg-gray-100 border-2 border-gray-200">
+                                <img src="/storage/app/media{{ record.image }}" alt="" class="w-full h-72 object-cover" />
+                                <div class="w-full py-7 px-5">
+                                    <h4 class="text-left text-zinc-800 text-xl font-medium">{{ record.name }}</h4>
+                                    <ul aria-label="Характеристики" class="w-full py-4">
+                                        <li class="w-full flex items-center justify-between mb-2">
+                                            <span class="font-medium text-zinc-800">Состояние</span>
+                                            <span class="text-zinc-500">
+                                            {% if record.condition == 2 %}
+                                            Новое
+                                            {% else %}
+                                            Б/у
+                                            {% endif %}
+                                            </span>
+                                        </li>
+                                        <li class="w-full flex items-center justify-between mb-2">
+                                            <span class="font-medium text-zinc-800">Производитель</span>
+                                            <span class="text-zinc-500">{{ record.brand }}</span>
+                                        </li>
+                                        <li class="w-full flex items-center justify-between mb-2">
+                                            <span class="font-medium text-zinc-800">Грузоподъемность макс.</span>
+                                            <span class="text-zinc-500">{{ record.load_copasity }} т</span>
+                                        </li>
+                                        <li class="w-full flex items-center justify-between mb-2">
+                                            <span class="font-medium text-zinc-800">Макс. вылет стрелы</span>
+                                            <span class="text-zinc-500">{{ record.max_dep }} м</span>
+                                        </li>
+                                        <li class="w-full flex items-center justify-between mb-2">
+                                            <span class="font-medium text-zinc-800">Грузоподъемность на макс. вылете</span>
+                                            <span class="text-zinc-500">{{ record.load_max_dep }} т</span>
+                                        </li>
+                                        <li class="w-full flex items-center justify-between">
+                                            <span class="font-medium text-zinc-800">Высота подъема крюка</span>
+                                            <span class="text-zinc-500">{{ record.height }} м</span>
+                                        </li>
+                                    </ul>
+                                    <div class="w-full flex justify-end">
+                                        <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}" class="button-primary">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% else %}
+                        <div class="no-data">{{ noRecordsMessage }}</div>
+                    {% endfor %}
+                </div>
+                {% if records.lastPage > 1 %}
+                    <ul class="flex items-center">
+                        {% if records.currentPage > 1 %}
+                            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr;</a></li>
+                        {% endif %}
+                
+                        {% for page in 1..records.lastPage %}
+                            <li style="margin: 0 5px;" class="{{ records.currentPage == page ? 'bg-gray-200 text-blue-800 w-7 h-7 flex items-center justify-center rounded-md' : null }}w-7 h-7 flex items-center justify-center rounded-md border-2 border-gray-200">
+                                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                            </li>
+                        {% endfor %}
+                
+                        {% if records.lastPage > records.currentPage %}
+                            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}"> &rarr;</a></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </section>

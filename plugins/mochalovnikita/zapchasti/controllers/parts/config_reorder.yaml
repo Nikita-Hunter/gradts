@@ -1,0 +1,4 @@
+title: Parts
+modelClass: MochalovNikita\Zapchasti\Models\Part
+toolbar:
+    buttons: reorder_toolbar

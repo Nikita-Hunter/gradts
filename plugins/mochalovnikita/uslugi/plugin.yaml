@@ -1,0 +1,11 @@
+plugin:
+    name: 'mochalovnikita.uslugi::lang.plugin.name'
+    description: 'mochalovnikita.uslugi::lang.plugin.description'
+    author: 'Мочалов Никита'
+    icon: oc-icon-list
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Услуги
+        url: mochalovnikita/uslugi/services
+        icon: icon-list

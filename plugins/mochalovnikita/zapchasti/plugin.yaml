@@ -1,0 +1,20 @@
+plugin:
+    name: 'mochalovnikita.zapchasti::lang.plugin.name'
+    description: 'mochalovnikita.zapchasti::lang.plugin.description'
+    author: 'Мочалов Никита'
+    icon: oc-icon-cogs
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Запчасти
+        url: mochalovnikita/zapchasti/parts
+        icon: icon-cogs
+        sideMenu:
+            side-menu-item2:
+                label: Запчасти
+                url: mochalovnikita/zapchasti/parts
+                icon: icon-cogs
+            side-menu-item:
+                label: Категории
+                url: mochalovnikita/zapchasti/categories
+                icon: icon-cog

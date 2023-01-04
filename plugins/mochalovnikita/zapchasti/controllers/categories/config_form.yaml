@@ -1,0 +1,10 @@
+name: Categories
+form: $/mochalovnikita/zapchasti/models/category/fields.yaml
+modelClass: MochalovNikita\Zapchasti\Models\Category
+defaultRedirect: mochalovnikita/zapchasti/categories
+create:
+    redirect: 'mochalovnikita/zapchasti/categories/update/:id'
+    redirectClose: mochalovnikita/zapchasti/categories
+update:
+    redirect: mochalovnikita/zapchasti/categories
+    redirectClose: mochalovnikita/zapchasti/categories

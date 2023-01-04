@@ -1,0 +1,10 @@
+name: Cranes
+form: $/mochalovnikita/bashennyekrany/models/crane/fields.yaml
+modelClass: MochalovNikita\BashennyeKrany\Models\Crane
+defaultRedirect: mochalovnikita/bashennyekrany/cranes
+create:
+    redirect: 'mochalovnikita/bashennyekrany/cranes/update/:id'
+    redirectClose: mochalovnikita/bashennyekrany/cranes
+update:
+    redirect: mochalovnikita/bashennyekrany/cranes
+    redirectClose: mochalovnikita/bashennyekrany/cranes

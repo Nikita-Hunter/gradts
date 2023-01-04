@@ -1,0 +1,11 @@
+plugin:
+    name: 'mochalovnikita.bashennyekrany::lang.plugin.name'
+    description: 'mochalovnikita.bashennyekrany::lang.plugin.description'
+    author: 'Мочалов Никита'
+    icon: oc-icon-train
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'Башенные краны'
+        url: mochalovnikita/bashennyekrany/cranes
+        icon: icon-train

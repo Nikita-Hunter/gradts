@@ -1,0 +1,52 @@
+columns:
+    id:
+        label: id
+        type: number
+    created_at:
+        label: created_at
+        type: datetime
+    updated_at:
+        label: updated_at
+        type: datetime
+    deleted_at:
+        label: deleted_at
+        type: datetime
+    name:
+        label: name
+        type: text
+        searchable: true
+    slug:
+        label: slug
+        type: text
+    category_id:
+        label: category_id
+        type: text
+        relation: category
+        select: name
+        searchable: true
+    condition:
+        label: condition
+        type: number
+        searchable: true
+    availability:
+        label: availability
+        type: number
+        searchable: true
+    compatibility:
+        label: compatibility
+        type: text
+        searchable: true
+    description:
+        label: description
+        type: text
+        searchable: true
+    sku:
+        label: sku
+        type: text
+        searchable: true
+    image:
+        label: image
+        type: text
+    active:
+        label: Отображение
+        type: text
